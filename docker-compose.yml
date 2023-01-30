@@ -1,0 +1,59 @@
+version: '3.9'
+services:
+  auth:
+    build:
+      context: ./authorization
+      target: app_auth
+      args:
+        DOCKER_USER_ID: ${DOCKER_USER_ID}
+        DOCKER_GROUP_ID: ${DOCKER_GROUP_ID}
+    environment:
+      - AUTH_CONFIG=config.ProductionConfig
+      - GUNICORN_CMD_ARGS
+      - POSTGRES_PASSWORD
+      - POSTGRES_USER
+      - POSTGRES_DB
+      - POSTGRES_HOST
+      - REDIS_HOST
+      - SECRET_KEY
+      - TOKEN_SECRET_KEY
+    depends_on:
+      - db
+      - redis
+  redis:
+    image: redis:6-alpine
+  db:
+    image: postgres:14-alpine
+    environment:
+      - POSTGRES_PASSWORD
+      - POSTGRES_USER
+      - POSTGRES_DB
+      - PGDATA=/var/lib/postgresql/data
+    volumes:
+      - db:/var/lib/postgresql/data
+  nginx:
+    build:
+      context: ./authorization
+      target: app_nginx
+    depends_on:
+      - auth
+    ports:
+      - '8080:80'
+    networks:
+      yp-movies:
+        aliases:
+          - auth_nginx
+      default:
+        aliases:
+          - nginx
+  jaeger:
+    image: jaegertracing/all-in-one
+    ports:
+      - '16686:16686'
+
+volumes:
+  db:
+
+networks:
+  yp-movies:
+    name: movies_api_network

@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  tests:
+    entrypoint: >
+      sh -c "python waiting.py && python -m pytest -v src/"
+    volumes:
+      - ./:/app
+  auth:
+    environment:
+      - AUTH_CONFIG
+    extends:
+      file: ../../docker-compose.override.yml
+      service: auth

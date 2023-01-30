@@ -1,0 +1,9 @@
+@startuml
+actor Client
+Client -> Service: Login, password
+database DB_Redis
+Service -> DB_Redis: Ask login and encrypted password
+DB_Redis -> Service: Login and encrypted password
+rnote over Service: Check for encrypted password.
+Service -> Client: Session token and refresh token.
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+actor Client
+Client -> Service: Access token. (No refresh token)
+database DB_Postgres
+Service -> Client: if the access token is valid - all is ok.
+Service -> Client: if the access token is expired - \n
+Service -> Client: ask for the refresh token, \nif refresh is not expired refresh and \nsend a new rair of tokens.
+
+Service -> Client: if the access token is expired - \ncheck the refresh token, \n
+Service -> Client: if refresh is expired, authentication failed, \nnew login process required.
+database DB_Redis
+Service -> DB_Redis: if the AT is explicitly invalidated - refresh fails.
+rnote over DB_Redis: Delete refresh token.
+@enduml

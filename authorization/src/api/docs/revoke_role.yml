@@ -1,0 +1,22 @@
+Revoke role
+---
+tags:
+  - revoke role
+parameters:
+parameters:
+  - name: user_id
+    in: path
+    type: string
+    required: true
+  - name: role_id
+    in: path
+    type: string
+    required: true    
+responses:
+  200:
+    description: Role was revoked
+    schema:
+      properties:
+        message:
+          type: string
+          description: Response message

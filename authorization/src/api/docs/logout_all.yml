@@ -1,0 +1,24 @@
+Logout from all devices
+---
+tags:
+  - logout all
+parameters:
+  - in: body
+    name: body
+    schema:
+      required:
+        - refresh
+        - access
+      properties:
+        access:
+          type: string
+          description: refresh token.
+          default: null
+        refresh:
+          type: string
+          description: access token.
+          default: null
+responses:
+  200:
+    description: Logout from all devices success
+

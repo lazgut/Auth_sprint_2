@@ -1,0 +1,21 @@
+Get user by id
+---
+tags:
+- user
+parameters:
+  - name: user_id
+    in: path
+    type: string
+    required: true
+
+responses:
+  200:
+    description: User
+    schema:
+      properties:
+        id:
+          type: string
+          description: user id
+        login:
+          type: string
+          description:  user login

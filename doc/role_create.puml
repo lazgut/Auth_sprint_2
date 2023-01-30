@@ -1,0 +1,6 @@
+@startuml
+actor Client
+Client -> Service: New role name
+Service -> DB_Postgres: Create if exists
+Service -> Client: Response (success or not)
+@enduml

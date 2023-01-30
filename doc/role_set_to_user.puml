@@ -1,0 +1,8 @@
+@startuml
+actor Client
+Client -> Service: Client Service AT + user login + role
+database DB_Postgres
+rnote over Service: Check AT
+Service -> DB_Postgres: Update record - this client service + this login.
+Service -> Client: Response
+@enduml

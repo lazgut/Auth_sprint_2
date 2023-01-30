@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  auth:
+    build:
+      context: ./authorization
+    environment:
+      - AUTH_CONFIG
+    volumes:
+      - ./authorization/src:/app
+    command: flask --app app --debug run --host=0.0.0.0

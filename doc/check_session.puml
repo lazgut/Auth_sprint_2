@@ -1,0 +1,4 @@
+@startuml
+Client -> Service: access token
+Service -> Client: whether the token valid
+@enduml

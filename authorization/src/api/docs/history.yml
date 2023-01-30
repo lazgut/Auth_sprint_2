@@ -1,0 +1,24 @@
+Get access histtory by user id
+---
+tags:
+- access histtory
+parameters:
+  - name: user_id
+    in: path
+    type: string
+    required: true
+
+responses:
+  200:
+    description: Access histtory
+    schema:
+      properties:
+        access_data:
+          type: string
+          description: data
+        device:
+          type: string
+          description:  device
+responses:
+  403:
+    description: Forbidden

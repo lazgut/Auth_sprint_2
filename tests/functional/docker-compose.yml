@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  tests:
+    build: .
+    entrypoint: >
+      sh -c "python waiting.py && python -m pytest src/"
+    depends_on:
+      - auth
+      - db
+      - redis
+  auth:
+    environment:
+      - AUTH_CONFIG
+    extends:
+      file: ../../docker-compose.yml
+      service: auth
+  db:
+    extends:
+      file: ../../docker-compose.yml
+      service: db
+    volumes:
+      - /var/lib/postgresql/data
+  redis:
+    extends:
+      file: ../../docker-compose.yml
+      service: redis

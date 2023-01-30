@@ -1,0 +1,39 @@
+Login, get access and refresh tokens
+---
+tags:
+  - auth
+parameters:
+  - in: body
+    name: body
+    schema:
+      id: UserModel
+      required:
+        - login
+        - password
+      properties:
+        login:
+          type: string
+          description: The user's username.
+          default: "JohnDoe"
+        password:
+          type: string
+          description: The user's password.
+          default: "Qwerty123"
+responses:
+  200:
+    description: Message that user was created
+    schema:
+      properties:
+        access:
+          type: string
+          description: id of created user
+          default: null
+        refresh:
+          type: string
+          description: id of created user
+          default: null
+  403:
+    description: Forbidden
+
+  400:
+    description: Bad request response

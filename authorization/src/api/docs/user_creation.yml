@@ -1,0 +1,35 @@
+Create new user
+---
+tags:
+  - user creation
+parameters:
+  - in: body
+    name: body
+    schema:
+      required:
+        - login
+        - password
+      properties:
+        login:
+          type: string
+          description: The user's username.
+          default: "JohnDoe"
+        password:
+          type: string
+          description: The user's password.
+          default: "Qwerty123"
+responses:
+  201:
+    description: Message that user was created
+    schema:
+      properties:
+        id:
+          type: string
+          description: id of created user
+          default: null
+        login:
+          type: string
+          description: login
+          default: null
+  500:
+    description: INTERNAL SERVER ERROR

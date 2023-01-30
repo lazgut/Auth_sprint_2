@@ -1,0 +1,20 @@
+Get list of all roles or role by id
+---
+tags:
+- get roles
+parameters:
+  - name: role_id
+    in: path
+    type: string
+    required: false
+responses:
+  200:
+    description: Roles
+    schema:
+      properties:
+        id:
+          type: string
+        client_service_id:
+          type: string
+        name:
+          type: string

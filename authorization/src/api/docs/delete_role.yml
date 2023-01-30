@@ -1,0 +1,22 @@
+Delete role
+---
+tags:
+- delete role
+parameters:
+  - name: role_id
+    in: path
+    type: string
+    required: true
+responses:
+  200:
+    description: NO CONTENT
+    schema:
+      properties:
+        message:
+          type: string
+  500:
+    description: INTERNAL SERVER ERROR
+    schema:
+      properties:
+        message:
+          type: string

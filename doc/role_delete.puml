@@ -1,0 +1,6 @@
+@startuml
+actor Client
+Client -> Service: Role name to delete.
+Service -> DB_Postgres: Delete
+Service -> Client: Response (success or not)
+@enduml

@@ -1,0 +1,30 @@
+Get new access and refresh tokens
+---
+tags:
+  - refresh token
+parameters:
+  - in: body
+    name: body
+    schema:
+      required:
+        - refresh_token
+      properties:
+        refresh:
+          type: string
+          description: Refresh token
+          default: null
+responses:
+  200:
+    description: Get new refresh and access tokens
+    schema:
+      properties:
+        access:
+          type: string
+          description: id of created user
+          default: null
+        refresh:
+          type: string
+          description: id of created user
+          default: null
+  403:
+    description: Forbidden

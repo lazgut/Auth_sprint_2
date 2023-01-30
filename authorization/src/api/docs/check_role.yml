@@ -1,0 +1,30 @@
+Check user access by role
+---
+tags:
+- check role
+parameters:
+  - name: action
+    in: path
+    type: string
+    required: true
+  - name: user_id
+    in: path
+    type: string
+    required: true
+  - name: resource_id
+    in: path
+    type: string
+    required: true
+responses:
+  200:
+    description: Access granted
+    schema:
+      properties:
+        message:
+          type: string
+  403:
+    description: Access denied
+    schema:
+      properties:
+        message:
+          type: string

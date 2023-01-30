@@ -1,0 +1,20 @@
+Check access token
+---
+tags:
+  - access chek
+parameters:
+  - in: body
+    name: body
+    schema:
+      required:
+        - access_token
+      properties:
+        access:
+          type: string
+          description: Refresh token
+          default: null
+responses:
+  200:
+    description: Access token is OK
+  403:
+    description: Forbidden

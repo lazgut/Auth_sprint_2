@@ -1,0 +1,29 @@
+Update role
+---
+tags:
+- update roles
+parameters:
+  - name: role_id
+    in: path
+    type: string
+    required: true
+  - in: body
+    name: body
+    schema:
+      required:
+        - role_name
+        - client_service_id
+      properties:
+        role_name:
+          type: string
+        client_service_id:
+          type: string
+responses:
+  204:
+    description: NO CONTENT
+  404:
+    description: BAD_REQUEST
+    schema:
+      properties:
+        message:
+          type: string

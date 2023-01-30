@@ -1,0 +1,8 @@
+@startuml
+actor Client
+Client -> Service: Login, password
+database DB_Postgres
+Service -> DB_Postgres: Login, encrypted password
+DB_Postgres -> Service: If the user is not registered, register. \n set a 'default user' role to him.
+Service -> Client: Session token.
+@enduml

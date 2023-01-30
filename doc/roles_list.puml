@@ -1,0 +1,6 @@
+@startuml
+actor Client
+Client -> Service: General query to get all roles.
+Service -> DB_Postgres: Get all roles
+Service -> Client: Roles list.
+@enduml

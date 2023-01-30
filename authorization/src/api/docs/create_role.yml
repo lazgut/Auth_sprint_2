@@ -1,0 +1,29 @@
+Create new role
+---
+tags:
+  - role creation
+parameters:
+  - in: body
+    name: body
+    schema:
+      required:
+        - role_name
+        - client_service_id
+      properties:
+        role_name:
+          type: string
+        client_service_id:
+          type: string
+responses:
+  201:
+    description: Role was created
+    schema:
+      properties:
+        id:
+          type: string
+        client_service_id:
+          type: string
+        name:
+          type: string
+  500:
+    description: INTERNAL SERVER ERROR

@@ -1,0 +1,2 @@
+class AuthProviderNotExists(Exception):
+    pass
