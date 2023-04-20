@@ -7,7 +7,6 @@ After starting the project, you will have access to the project documentation: [
 
 # Installation
 
-The project permanent address: https://github.com/dondublon/Auth_sprint_1
 
 (Optional) Use `flask -A cli.app create-superuser admin` shell command to create admin user.
 
